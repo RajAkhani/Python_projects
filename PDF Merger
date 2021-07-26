@@ -1,0 +1,16 @@
+import PyPDF2
+
+merger = PyPDF2.PdfFileMerger()
+
+filenames = []
+num = int(input('Enter the number of files to merge:'))
+print("Enter the path of the files in sequence you want(with .pdf extension)::")
+for i in range(num):
+    path = input()
+    filenames.append(path)
+
+for filename in filenames:
+    merger.append(filename)
+
+new_pdf = input('Enter the path where you want to store your merged pdf with its new name(with .pdf extension):')
+merger.write(new_pdf)
